@@ -7,6 +7,7 @@ use Appkr\SwaggerPocApi\Model\ErrorDto;
 use Appkr\SwaggerPocApi\Model\LoginRequest;
 use Appkr\SwaggerPocApi\Model\NewProductRequest;
 use Appkr\SwaggerPocApi\Model\NewReviewRequest;
+use Appkr\SwaggerPocApi\Model\ProductDto;
 use Appkr\SwaggerPocApi\ObjectSerializer;
 use Appkr\SwaggerPocApi\Service\AuthApi;
 use Appkr\SwaggerPocApi\Service\ProductApi;
@@ -140,6 +141,18 @@ abstract class SwaggerPocApiTester extends TestCase
             'title' => $overrides['title'] ?? 'REVIEW TITLE',
             'content' => $overrides['content'] ?? 'REVIEW CONTENT',
         ]);
+    }
+
+    public function getAnyProductDto()
+    {
+        $authorizationString = $this->getAuthString();
+        $productListResponse = $this->getProductApi()->listProducts($authorizationString);
+        $noOfProductDtoItems = count($productListResponse);
+
+        return ($noOfProductDtoItems > 0)
+            ? $productListResponse->getData()[mt_rand(0, $noOfProductDtoItems - 1)]
+            : $this->getProductApi()
+                ->createProduct($authorizationString, $this->getNewProductRequest());
     }
 
     /**
