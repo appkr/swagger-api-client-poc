@@ -4,10 +4,17 @@
     "keywords": ["framework", "laravel", "lumen"],
     "license": "MIT",
     "type": "project",
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/appkr/swagger-poc-api.git"
+        }
+    ],
     "require": {
         "php": ">=7.0",
         "laravel/lumen-framework": "5.5.*",
-        "vlucas/phpdotenv": "~2.2"
+        "vlucas/phpdotenv": "~2.2",
+        "appkr/swagger-poc-api": "dev-dist-php"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
