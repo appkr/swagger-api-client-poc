@@ -7,7 +7,7 @@ use Appkr\SwaggerPocApi\Service\AuthApi;
 use Appkr\SwaggerPocApi\Service\ProductApi;
 use Appkr\SwaggerPocApi\Service\ReviewApi;
 use GuzzleHttp\Client;
-use Illuminate\Contracts\Foundation\Application;
+use Laravel\Lumen\Application;
 use Illuminate\Support\ServiceProvider;
 
 class SwaggerPocApiServiceProvider extends ServiceProvider

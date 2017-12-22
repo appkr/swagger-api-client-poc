@@ -12,6 +12,7 @@
     <testsuites>
         <testsuite name="Application Test Suite">
             <directory suffix="Test.php">./tests</directory>
+            <exclude>./tests/SwaggerPocApiTester.php</exclude>
         </testsuite>
     </testsuites>
     <filter>
