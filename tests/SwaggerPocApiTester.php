@@ -5,6 +5,8 @@ namespace Test;
 use Appkr\SwaggerPocApi\ApiException;
 use Appkr\SwaggerPocApi\Model\ErrorDto;
 use Appkr\SwaggerPocApi\Model\LoginRequest;
+use Appkr\SwaggerPocApi\Model\NewProductRequest;
+use Appkr\SwaggerPocApi\Model\NewReviewRequest;
 use Appkr\SwaggerPocApi\ObjectSerializer;
 use Appkr\SwaggerPocApi\Service\AuthApi;
 use Appkr\SwaggerPocApi\Service\ProductApi;
@@ -100,6 +102,44 @@ abstract class SwaggerPocApiTester extends TestCase
         $accessToken = $this->login($loginRequest);
 
         return "{$accessToken->getTokenType()} {$accessToken->getAccessToken()}";
+    }
+
+    /**
+     * NewProductRequest 인스턴스를 구합니다.
+     *
+     * @param array $overrides {
+     *     @var string $title
+     *     @var int $stock
+     *     @var int $price
+     *     @var string $description
+     * }
+     * @return NewProductRequest
+     */
+    public function getNewProductRequest(array $overrides = [])
+    {
+        return new NewProductRequest([
+            'title' => $overrides['title'] ?? 'PRODUCT TITLE',
+            'stock' => $overrides['stock'] ?? 1,
+            'price' => $overrides['price'] ?? 100,
+            'description' => $overrides['description'] ?? 'PRODUCT DESCRIPTION',
+        ]);
+    }
+
+    /**
+     * NewReviewRequest 인스턴스를 구합니다.
+     *
+     * @param array $overrides {
+     *     @var string $title
+     *     @var string $content
+     * }
+     * @return NewReviewRequest
+     */
+    public function getNewReviewRequest(array $overrides = [])
+    {
+        return new NewReviewRequest([
+            'title' => $overrides['title'] ?? 'REVIEW TITLE',
+            'content' => $overrides['content'] ?? 'REVIEW CONTENT',
+        ]);
     }
 
     /**
