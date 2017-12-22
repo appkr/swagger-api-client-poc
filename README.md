@@ -5,6 +5,14 @@
 - API 서버 프로젝트(Laravel+Swagger): https://github.com/appkr/db-lock-poc
 - API 클라이언트 라이브러리: https://github.com/appkr/swagger-poc-api
 
+## How to RUN
+
+```bash
+~/swagger-api-client-poc $ vendor/bin/phpunit
+```
+
+![](docs/phpunit.png)
+
 ## Sponsor
 
 [Jetbrains](https://www.jetbrains.com/) 사에서 IntelliJ IDE를 제공해주셨습니다.
